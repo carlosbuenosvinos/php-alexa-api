@@ -32,8 +32,8 @@ class Client
     public function get($url)
     {
         $crawler = $this->client->request('GET', 'http://www.alexa.com/siteinfo/' . $url);
-        $classification = $crawler->filter('.speedAd > div > p > span')->text();
-        $message = $crawler->filter('.speedAd > div > p')->text();
+        $classification = $crawler->filter('#section-load > div > section > p > span')->text();
+        $message = $crawler->filter('#section-load > div > section > p')->text();
 
         return new Result($classification, $message);
     }
